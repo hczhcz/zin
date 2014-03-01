@@ -6,6 +6,7 @@ typedef char zchar;
 typedef unsigned int ztype;
 typedef unsigned int zsize;
 
+// Head: [type]
 typedef struct {
     ztype type;
 } zhead;
@@ -34,22 +35,36 @@ typedef struct {
     pzdata data[];
 } zdarr;
 
-// Codenil: [head]
+// Code nil: [head]
 typedef struct {
     zhead head;
 } zdcodenil;
 
-// Codemono: [head] [ptr]
+// Code mono: [head] [ptr]
 typedef struct {
     zhead head;
     pzdata data;
 } zdcodemono;
 
-// Codebi: [head] [l] [r]
+// Code bi: [head] [l] [r]
 typedef struct {
     zhead head;
     pzdata ldata;
     pzdata rdata;
 } zdcodebi;
+
+// Node of dict
+typedef struct {
+    pzdata index;
+    pzdata data;
+} zddictnode;
+
+// Dict: [head] [bitsize] [realsize] [ptr] ...
+typedef struct {
+    zhead head;
+    zsize bitsize;
+    zsize realsize;
+    zddictnode node[];
+} zddict;
 
 #endif
