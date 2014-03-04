@@ -13,6 +13,13 @@ typedef struct {
 
 typedef zhead *pzdata;
 
+    // Atom: [head]
+    typedef struct {
+        zhead head;
+    } zdatom;
+
+    typedef zdatom *pzdatom;
+
     // Int: [head] [int]
     typedef struct {
         zhead head;
@@ -31,6 +38,14 @@ typedef zhead *pzdata;
 
     typedef zdstr *pzdstr;
 
+    // Code: [head] [ptr] ...
+    typedef struct {
+        zhead head;
+        pzdata param[];
+    } zdcode;
+
+    typedef zdcode *pzdcode;
+
     // Arr: [head] [memsize (bit)] [front] [back] [ptr] ...
     // 0: nil, 1: nil, 2=front: ptr, 3: ptr, 4: ptr, 5=back: nil, ...
     typedef struct {
@@ -42,14 +57,6 @@ typedef zhead *pzdata;
     } zdarr;
 
     typedef zdarr *pzdarr;
-
-    // Code: [head] [ptr] ...
-    typedef struct {
-        zhead head;
-        pzdata param[];
-    } zdcode;
-
-    typedef zdcode *pzdcode;
 
         // Node of dict
         typedef struct {
@@ -70,8 +77,8 @@ typedef zhead *pzdata;
     // Context: [head] [callbuf] [libbuf]
     typedef struct {
         zhead head;
-        pzdata callbuf;
-        pzdata libbuf;
+        pzdarr callbuf;
+        pzdarr libbuf;
     } zdcontext;
 
     typedef zdcontext *pzdcontext;
