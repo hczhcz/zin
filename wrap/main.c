@@ -1,6 +1,7 @@
-#include "../base/option.h"
-#include "../base/data.h"
+#include "../base/base.lst"
 
 int main(void) {
+    ZIN_MEM_INIT();
+
     return 0;
 }
