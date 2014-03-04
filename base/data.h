@@ -1,6 +1,7 @@
 #ifndef ZIN_DATA_H
 #define ZIN_DATA_H
 
+// Internal data types
 typedef int zint;
 typedef char zchar;
 typedef unsigned int ztype;
