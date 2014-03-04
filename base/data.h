@@ -16,8 +16,10 @@ typedef zhead *pzdata;
     // Int: [head] [int]
     typedef struct {
         zhead head;
-        zint data;
+        zint value;
     } zdint;
+
+    typedef zdint *pzdint;
 
     // Str: [head] [memsize (bit)] [realsize] [char] ...
     typedef struct {
@@ -27,6 +29,8 @@ typedef zhead *pzdata;
         zchar data[];
     } zdstr;
 
+    typedef zdstr *pzdstr;
+
     // Arr: [head] [memsize (bit)] [front] [back] [ptr] ...
     // 0: nil, 1: nil, 2=front: ptr, 3: ptr, 4: ptr, 5=back: nil, ...
     typedef struct {
@@ -34,26 +38,18 @@ typedef zhead *pzdata;
         zsize memsize;
         zsize front;
         zsize back;
-        pzdata data[];
+        pzdata buf[];
     } zdarr;
 
-    // Code nil: [head]
-    typedef struct {
-        zhead head;
-    } zdcodenil;
+    typedef zdarr *pzdarr;
 
-    // Code mono: [head] [ptr]
+    // Code: [head] [ptr] ...
     typedef struct {
         zhead head;
-        pzdata data;
-    } zdcodemono;
+        pzdata param[];
+    } zdcode;
 
-    // Code bi: [head] [l] [r]
-    typedef struct {
-        zhead head;
-        pzdata ldata;
-        pzdata rdata;
-    } zdcodebi;
+    typedef zdcode *pzdcode;
 
         // Node of dict
         typedef struct {
@@ -69,6 +65,8 @@ typedef zhead *pzdata;
         zddictnode node[];
     } zddict;
 
+    typedef zddict *pzddict;
+
     // Context: [head] [callbuf] [libbuf]
     typedef struct {
         zhead head;
@@ -76,13 +74,15 @@ typedef zhead *pzdata;
         pzdata libbuf;
     } zdcontext;
 
-    typedef zdcontext *pzin;
+    typedef zdcontext *pzdcontext;
 
     // Func: [head] [funcr] [funcw]
     typedef struct {
         zhead head;
-        pzdata (*funcr)(pzin zin, pzdata caller);
-        void (*funcw)(pzin *zin, pzdata caller, pzdata input);
+        pzdata (*funcr)(pzdcontext zin, pzdata caller);
+        void (*funcw)(pzdcontext *zin, pzdata caller, pzdata input);
     } zdfunc;
+
+    typedef zdfunc *pzdfunc;
 
 #endif
