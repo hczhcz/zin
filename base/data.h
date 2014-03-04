@@ -69,4 +69,16 @@ typedef struct {
     zddictnode node[];
 } zddict;
 
+// Context:
+typedef struct {
+    zhead head;
+    pzdata callbuf;
+    pzdata libbuf;
+} zdcontext;
+
+typedef zdcontext *pzin;
+
+typedef pzdata (*zfuncr)(pzin zin, pzdata caller);
+typedef void (*zfuncw)(pzin *zin, pzdata caller, pzdata input);
+
 #endif
