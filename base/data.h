@@ -19,7 +19,7 @@ typedef struct {
     zint data;
 } zdint;
 
-// Str: [head] [memsize] [realsize] [char] ...
+// Str: [head] [memsize (bit)] [realsize] [char] ...
 typedef struct {
     zhead head;
     zsize memsize;
@@ -27,11 +27,13 @@ typedef struct {
     zchar data[];
 } zdstr;
 
-// Arr: [head] [memsize] [realsize] [ptr] ...
+// Arr: [head] [memsize (bit)] [front] [back] [ptr] ...
+// 0: nil, 1: nil, 2=front: ptr, 3: ptr, 4: ptr, 5=back: nil, ...
 typedef struct {
     zhead head;
     zsize memsize;
-    zsize realsize;
+    zsize front;
+    zsize back;
     pzdata data[];
 } zdarr;
 
@@ -59,10 +61,10 @@ typedef struct {
     pzdata data;
 } zddictnode;
 
-// Dict: [head] [bitsize] [realsize] [ptr] ...
+// Dict: [head] [memsize (bit)] [realsize] [ptr] ...
 typedef struct {
     zhead head;
-    zsize bitsize;
+    zsize memsize;
     zsize realsize;
     zddictnode node[];
 } zddict;
