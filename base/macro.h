@@ -2,8 +2,6 @@
 #define ZIN_MACRO_H
 
 // Modes
-#define ZIN_MODE 0
-
 #define ZIN_MODE_ENUM 1
 #define ZIN_MODE_HEADER 2
 #define ZIN_MODE_READ 3
