@@ -1,4 +1,4 @@
-#include "../base/base.lst"
+#include "bootstrap.h"
 
 #define ZIN_MODE ZIN_MODE_READ
 #include "bootstrap.lst"
