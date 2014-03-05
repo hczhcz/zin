@@ -1,24 +1,33 @@
 #if   ZIN_MODE == ZIN_MODE_ENUM
     zefalse, zetrue
 
-#elif ZIN_MODE == ZIN_MODE_HEADER
-    //#define ZIN_MAKE_FALSE()
+#elif ZIN_MODE == ZIN_MODE_HEADER_PROTO
+    //#define ZIN_MAKE_FALSE() ...
+    //#define ZIN_MAKE_TRUE() ...
+
+#elif ZIN_MODE == ZIN_MODE_HEADER_READ
+    ZIN_PROTO_R(zrfalse);
+    ZIN_PROTO_R(zrtrue);
+
+#elif ZIN_MODE == ZIN_MODE_HEADER_WRITE
+    ZIN_PROTO_W(zwfalse);
+    ZIN_PROTO_W(zwtrue);
 
 #elif ZIN_MODE == ZIN_MODE_READ
-    ZIN_PROTO_R(zffalse) {
+    ZIN_PROTO_R(zrfalse) {
         //
     }
 
-    ZIN_PROTO_R(zftrue) {
+    ZIN_PROTO_R(zrtrue) {
         //
     }
 
 #elif ZIN_MODE == ZIN_MODE_WRITE
-    ZIN_PROTO_W(zffalse) {
+    ZIN_PROTO_W(zwfalse) {
         // Error
     }
 
-    ZIN_PROTO_W(zftrue) {
+    ZIN_PROTO_W(zwtrue) {
         // Error
     }
 
