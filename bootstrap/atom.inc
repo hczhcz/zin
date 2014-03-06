@@ -1,5 +1,5 @@
 #if   ZIN_MODE == ZIN_MODE_ENUM
-    zefalse, zetrue
+    zefalse, zetrue,
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_PROTO
     //#define ZIN_MAKE_FALSE() ...
@@ -37,5 +37,8 @@
 
 #elif ZIN_MODE == ZIN_MODE_TEST
     // ZIN_EXEC(...)
+
+#elif ZIN_MODE == ZIN_MODE_HELP
+    // ZIN_DOC(...)
 
 #endif

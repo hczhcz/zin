@@ -10,6 +10,7 @@
 #define ZIN_MODE_WRITE 6
 #define ZIN_MODE_LOAD 7
 #define ZIN_MODE_TEST 8
+#define ZIN_MODE_HELP 9
 
 // Function prototypes
 #define ZIN_PROTO_R(x) pzdata (x)(pzdcontext zin, pzdata caller)
