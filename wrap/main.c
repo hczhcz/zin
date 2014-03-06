@@ -1,4 +1,4 @@
-#include "../base/base.lst"
+#include "../base/_all.h"
 
 // Main function
 int main(void) {
