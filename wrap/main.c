@@ -1,8 +1,10 @@
-#include "../base/_all.h"
+#include "zin.h"
 
 // Main function
 int main(void) {
-    ZIN_MEM_INIT();
+    zin_init();
+
+    pzdcontext context = zin_new();
 
     return 0;
 }
