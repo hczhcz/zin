@@ -1,7 +1,7 @@
 #ifndef ZIN_BOOTSTRAP_H
 #define ZIN_BOOTSTRAP_H
 
-#include "../base/_all.h"
+#include "../../base/_all.h"
 
 #define ZIN_MODE ZIN_MODE_HEADER_PROTO
 #include "_list.inc"
