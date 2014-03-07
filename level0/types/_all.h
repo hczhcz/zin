@@ -1,6 +1,3 @@
-#ifndef ZIN_BOOTSTRAP_H
-#define ZIN_BOOTSTRAP_H
-
 #include "../../base/_all.h"
 
 #define ZIN_MODE ZIN_MODE_HEADER_PROTO
@@ -10,5 +7,3 @@
 #define ZIN_MODE ZIN_MODE_HEADER_WRITE
 #include "_list.inc"
 #undef ZIN_MODE
-
-#endif

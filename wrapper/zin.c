@@ -1,10 +1,10 @@
 #include "zin.h"
 
-void zin_init() {
+void zin_init(void) {
     ZIN_MEM_INIT();
 }
 
-pzdcontext zin_new() {
+pzdcontext zin_new(void) {
     // TODO
 
 

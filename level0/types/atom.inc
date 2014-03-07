@@ -16,10 +16,14 @@
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(zrfalse) {
         //
+
+        return 0;
     }
 
     ZIN_PROTO_R(zrtrue) {
         //
+
+        return 0;
     }
 
 #elif ZIN_MODE == ZIN_MODE_WRITE

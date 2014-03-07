@@ -4,7 +4,7 @@
 int main(void) {
     zin_init();
 
-    pzdcontext context = zin_new();
+    // pzdcontext context = zin_new();
 
     return 0;
 }
