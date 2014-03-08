@@ -8,9 +8,11 @@
 #define ZIN_MODE_HEADER_WRITE 4
 #define ZIN_MODE_READ 5
 #define ZIN_MODE_WRITE 6
-#define ZIN_MODE_LOAD 7
-#define ZIN_MODE_TEST 8
-#define ZIN_MODE_HELP 9
+#define ZIN_MODE_LOAD_READ 7
+#define ZIN_MODE_LOAD_WRITE 8
+#define ZIN_MODE_TEST_READ 9
+#define ZIN_MODE_TEST_WRITE 10
+#define ZIN_MODE_DOC 11
 
 // Function prototypes
 #define ZIN_PROTO_R(x) pzdata (x)(pzdcontext zin, pzdata caller)

@@ -1,4 +1,4 @@
-#include "../../base/_all.h"
+#include "_all.h"
 
 #define ZIN_MODE ZIN_MODE_READ
 #include "_list.inc"

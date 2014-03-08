@@ -1,5 +1,5 @@
 #if   ZIN_MODE == ZIN_MODE_ENUM
-    zefalse, zetrue,
+    ,zefalse, zetrue
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_PROTO
     //#define ZIN_MAKE_FALSE() ...
@@ -15,15 +15,19 @@
 
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(zrfalse) {
-        //
+        pzdata result = ZIN_CREATE(sizeof(zdatom));
 
-        return 0;
+        (pzdatom) result->head.type = zefalse;
+
+        return result;
     }
 
     ZIN_PROTO_R(zrtrue) {
-        //
+        pzdata result = ZIN_CREATE(sizeof(zdatom));
 
-        return 0;
+        (pzdatom) result->head.type = zetrue;
+
+        return result;
     }
 
 #elif ZIN_MODE == ZIN_MODE_WRITE
@@ -35,14 +39,20 @@
         // Error
     }
 
-#elif ZIN_MODE == ZIN_MODE_LOAD
+#elif ZIN_MODE == ZIN_MODE_LOAD_READ
     // ZIN_LIB_ADD(ZIN_MAKE_FUNC(&zffalse), ...)
     // ZIN_LIB_ADD(ZIN_MAKE_FUNC(&zftrue), ...)
 
-#elif ZIN_MODE == ZIN_MODE_TEST
+#elif ZIN_MODE == ZIN_MODE_LOAD_WRITE
+
+
+#elif ZIN_MODE == ZIN_MODE_TEST_READ
     // ZIN_EXEC(...)
 
-#elif ZIN_MODE == ZIN_MODE_HELP
+#elif ZIN_MODE == ZIN_MODE_TEST_WRITE
+
+
+#elif ZIN_MODE == ZIN_MODE_DOC
     // ZIN_DOC(...)
 
 #endif
