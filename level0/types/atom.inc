@@ -13,7 +13,7 @@
     ZIN_PROTO_R(zrfalse) {
         pzdata result = ZIN_CREATE(sizeof(zdatom));
 
-        (pzdatom) result->head.type = zefalse;
+        ((pzdatom) result)->head.type = (ztype) zefalse;
 
         return result;
     }
@@ -21,7 +21,7 @@
     ZIN_PROTO_R(zrtrue) {
         pzdata result = ZIN_CREATE(sizeof(zdatom));
 
-        (pzdatom) result->head.type = zetrue;
+        ((pzdatom) result)->head.type = (ztype) zetrue;
 
         return result;
     }

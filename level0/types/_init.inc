@@ -1,5 +1,5 @@
 #if   ZIN_MODE == ZIN_MODE_ENUM
-    ,zeinit_types = 0
+    zeinit_types = 0
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_READ
     ZIN_PROTO_R(zrinit_types);
@@ -10,6 +10,8 @@
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(zrinit_types) {
         pzdata result = 0; // TODO: = zrdict(...)
+
+        #undef ZIN_MODE
 
         #define ZIN_MODE ZIN_MODE_LOAD_READ
         #include "_list.inc"
@@ -38,6 +40,8 @@
             #include "_list.inc"
             #undef ZIN_MODE
         #endif
+
+        #define ZIN_MODE ZIN_MODE_READ
 
         return result;
     }
