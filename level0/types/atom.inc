@@ -1,10 +1,6 @@
 #if   ZIN_MODE == ZIN_MODE_ENUM
     ,zefalse, zetrue
 
-#elif ZIN_MODE == ZIN_MODE_HEADER_PROTO
-    //#define ZIN_MAKE_FALSE() ...
-    //#define ZIN_MAKE_TRUE() ...
-
 #elif ZIN_MODE == ZIN_MODE_HEADER_READ
     ZIN_PROTO_R(zrfalse);
     ZIN_PROTO_R(zrtrue);

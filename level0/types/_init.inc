@@ -1,9 +1,6 @@
 #if   ZIN_MODE == ZIN_MODE_ENUM
     ,zeinit_types = 0
 
-#elif ZIN_MODE == ZIN_MODE_HEADER_PROTO
-    // ...
-
 #elif ZIN_MODE == ZIN_MODE_HEADER_READ
     ZIN_PROTO_R(zrinit_types);
 

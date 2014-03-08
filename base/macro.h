@@ -3,16 +3,15 @@
 
 // Modes
 #define ZIN_MODE_ENUM 1
-#define ZIN_MODE_HEADER_PROTO 2
-#define ZIN_MODE_HEADER_READ 3
-#define ZIN_MODE_HEADER_WRITE 4
-#define ZIN_MODE_READ 5
-#define ZIN_MODE_WRITE 6
-#define ZIN_MODE_LOAD_READ 7
-#define ZIN_MODE_LOAD_WRITE 8
-#define ZIN_MODE_TEST_READ 9
-#define ZIN_MODE_TEST_WRITE 10
-#define ZIN_MODE_DOC 11
+#define ZIN_MODE_HEADER_READ 2
+#define ZIN_MODE_HEADER_WRITE 3
+#define ZIN_MODE_READ 4
+#define ZIN_MODE_WRITE 5
+#define ZIN_MODE_LOAD_READ 6
+#define ZIN_MODE_LOAD_WRITE 7
+#define ZIN_MODE_TEST_READ 8
+#define ZIN_MODE_TEST_WRITE 9
+#define ZIN_MODE_DOC 10
 
 // Function prototypes
 #define ZIN_PROTO_R(x) pzdata (x)(pzdcontext zin, pzdata caller)
