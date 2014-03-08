@@ -9,7 +9,35 @@
 
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(zrinit_types) {
-        // Include all LOAD/TEST/DOC sections
+        pzdata result = 0; // TODO: = zrdict(...)
+
+        #define ZIN_MODE ZIN_MODE_LOAD_READ
+        #include "_list.inc"
+        #undef ZIN_MODE
+
+        #ifdef ZIN_ENABLE_WRITE
+            #define ZIN_MODE ZIN_MODE_LOAD_WRITE
+            #include "_list.inc"
+            #undef ZIN_MODE
+        #endif
+
+        #ifdef ZIN_ENABLE_TEST
+            #define ZIN_MODE ZIN_MODE_TEST_READ
+            #include "_list.inc"
+            #undef ZIN_MODE
+
+            #ifdef ZIN_ENABLE_WRITE
+                #define ZIN_MODE ZIN_MODE_TEST_WRITE
+                #include "_list.inc"
+                #undef ZIN_MODE
+            #endif
+        #endif
+
+        #ifdef ZIN_ENABLE_DOC
+            #define ZIN_MODE ZIN_MODE_DOC
+            #include "_list.inc"
+            #undef ZIN_MODE
+        #endif
 
         return result;
     }

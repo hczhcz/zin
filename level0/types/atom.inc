@@ -36,8 +36,8 @@
     }
 
 #elif ZIN_MODE == ZIN_MODE_LOAD_READ
-    // ZIN_LIB_ADD(ZIN_MAKE_FUNC(&zffalse), ...)
-    // ZIN_LIB_ADD(ZIN_MAKE_FUNC(&zftrue), ...)
+    // result(zefalse) := zrfunc(@zrfalse)
+    // result(zetrue) := zrfunc(@zrtrue)
 
 #elif ZIN_MODE == ZIN_MODE_LOAD_WRITE
 
