@@ -1,3 +1,4 @@
+#include "_init.inc"
 #include "arr.inc"
 #include "atom.inc"
 #include "code.inc"
