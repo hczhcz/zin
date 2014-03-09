@@ -1,8 +1,8 @@
 #ifndef ZIN_MACRO_H
 #define ZIN_MACRO_H
 
-// Modes
-#define ZIN_MODE_ENUM 1
+// Inclusion modes
+#define ZIN_MODE_ID 1
 #define ZIN_MODE_HEADER_READ 2
 #define ZIN_MODE_HEADER_WRITE 3
 #define ZIN_MODE_READ 4
@@ -13,9 +13,20 @@
 #define ZIN_MODE_TEST_WRITE 9
 #define ZIN_MODE_DOC 10
 
-// Function prototypes
-#define ZIN_PROTO_R(x) pzdata (x)(pzdcontext zin, pzdata caller)
-#define ZIN_PROTO_W(x) void (x)(pzdcontext zin, pzdata caller, pzdata input)
+// Functions' prototypes
+#define ZIN_PROTO_PR(name) pzdata (* (name)) (pzdcontext zin, pzdata caller)
+#define ZIN_PROTO_PW(name) void (* (name)) (pzdcontext zin, pzdata caller, pzdata input)
+#define ZIN_PROTO_R(name) pzdata (zr##name) (pzdcontext zin, pzdata caller)
+#define ZIN_PROTO_W(name) void (zw##name) (pzdcontext zin, pzdata caller, pzdata input)
+
+// Functions' usage
+#define ZIN_FUNC_R(name) (zr##name)
+#define ZIN_FUNC_W(name) (zw##name)
+
+// Enum (type id allocator)
+#define ZIN_ID(name) ((ztype) (ze##name))
+#define ZIN_ID_INIT(name, id) ze##name = (id)
+#define ZIN_ID_DEF(name) , ze##name
 
 // Memory management
 #define ZIN_MEM_INIT() GC_INIT()

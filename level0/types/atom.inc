@@ -1,43 +1,43 @@
-#if   ZIN_MODE == ZIN_MODE_ENUM
-    ,zefalse, zetrue
+#if   ZIN_MODE == ZIN_MODE_ID
+    ZIN_ID_DEF(false) ZIN_ID_DEF(true)
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_READ
-    ZIN_PROTO_R(zrfalse);
-    ZIN_PROTO_R(zrtrue);
+    ZIN_PROTO_R(false);
+    ZIN_PROTO_R(true);
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_WRITE
-    ZIN_PROTO_W(zwfalse);
-    ZIN_PROTO_W(zwtrue);
+    ZIN_PROTO_W(false);
+    ZIN_PROTO_W(true);
 
 #elif ZIN_MODE == ZIN_MODE_READ
-    ZIN_PROTO_R(zrfalse) {
+    ZIN_PROTO_R(false) {
         pzdata result = ZIN_CREATE(sizeof(zdatom));
 
-        ((pzdatom) result)->head.type = (ztype) zefalse;
+        ((pzdatom) result)->head.type = ZIN_ID(false);
 
         return result;
     }
 
-    ZIN_PROTO_R(zrtrue) {
+    ZIN_PROTO_R(true) {
         pzdata result = ZIN_CREATE(sizeof(zdatom));
 
-        ((pzdatom) result)->head.type = (ztype) zetrue;
+        ((pzdatom) result)->head.type = ZIN_ID(true);
 
         return result;
     }
 
 #elif ZIN_MODE == ZIN_MODE_WRITE
-    ZIN_PROTO_W(zwfalse) {
+    ZIN_PROTO_W(false) {
         // Error
     }
 
-    ZIN_PROTO_W(zwtrue) {
+    ZIN_PROTO_W(true) {
         // Error
     }
 
 #elif ZIN_MODE == ZIN_MODE_LOAD_READ
-    // result(zefalse) := zrfunc(@zrfalse)
-    // result(zetrue) := zrfunc(@zrtrue)
+    // result(zefalse) := ZIN_FUNC_R(FUNC)(@ZIN_FUNC_R(false), @ZIN_FUNC_W(false))
+    // result(zetrue) := ZIN_FUNC_R(FUNC)(@...)
 
 #elif ZIN_MODE == ZIN_MODE_LOAD_WRITE
 

@@ -1,7 +1,7 @@
 #include "../../base/_all.h"
 
 enum {
-    #define ZIN_MODE ZIN_MODE_ENUM
+    #define ZIN_MODE ZIN_MODE_ID
     #include "_list.inc"
     #undef ZIN_MODE
 };

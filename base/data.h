@@ -87,8 +87,8 @@ typedef zhead *pzdata;
     // Func: [head] [funcr] [funcw]
     typedef struct {
         zhead head;
-        ZIN_PROTO_R(*funcr);
-        ZIN_PROTO_W(*funcw);
+        ZIN_PROTO_PR(funcr);
+        ZIN_PROTO_PW(funcw);
     } zdfunc;
 
     typedef zdfunc *pzdfunc;
