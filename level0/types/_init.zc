@@ -14,30 +14,30 @@
         #undef ZIN_MODE
 
         #define ZIN_MODE ZIN_MODE_LOAD_READ
-        #include "_list.inc"
+        #include "_list.h"
         #undef ZIN_MODE
 
         #ifdef ZIN_ENABLE_WRITE
             #define ZIN_MODE ZIN_MODE_LOAD_WRITE
-            #include "_list.inc"
+            #include "_list.h"
             #undef ZIN_MODE
         #endif
 
         #ifdef ZIN_ENABLE_TEST
             #define ZIN_MODE ZIN_MODE_TEST_READ
-            #include "_list.inc"
+            #include "_list.h"
             #undef ZIN_MODE
 
             #ifdef ZIN_ENABLE_WRITE
                 #define ZIN_MODE ZIN_MODE_TEST_WRITE
-                #include "_list.inc"
+                #include "_list.h"
                 #undef ZIN_MODE
             #endif
         #endif
 
         #ifdef ZIN_ENABLE_DOC
             #define ZIN_MODE ZIN_MODE_DOC
-            #include "_list.inc"
+            #include "_list.h"
             #undef ZIN_MODE
         #endif
 
