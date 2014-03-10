@@ -1,5 +1,5 @@
 #if   ZIN_MODE == ZIN_MODE_ID
-    ZIN_ID_INIT(init_types, 0)
+    ZIN_ID_INIT(init_types)
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_READ
     ZIN_PROTO_R(init_types);
