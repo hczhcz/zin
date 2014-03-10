@@ -1,14 +1,14 @@
 #if   ZIN_MODE == ZIN_MODE_ID
-    ZIN_ID_INIT(init_types)
+    ZIN_ID_INIT(_ZIN_CURRENT_INIT)
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_READ
-    ZIN_PROTO_R(init_types);
+    ZIN_PROTO_R(_ZIN_CURRENT_INIT);
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_WRITE
-    ZIN_PROTO_W(init_types);
+    ZIN_PROTO_W(_ZIN_CURRENT_INIT);
 
 #elif ZIN_MODE == ZIN_MODE_READ
-    ZIN_PROTO_R(init_types) {
+    ZIN_PROTO_R(_ZIN_CURRENT_INIT) {
         pzdata result = 0; // TODO: = zrdict(...)
 
         #undef ZIN_MODE
@@ -47,12 +47,12 @@
     }
 
 #elif ZIN_MODE == ZIN_MODE_WRITE
-    ZIN_PROTO_W(init_types) {
+    ZIN_PROTO_W(_ZIN_CURRENT_INIT) {
         // Error
     }
 
 #elif ZIN_MODE == ZIN_MODE_LOAD_READ
-    // dict(init) => func(types)
+    // dict(init) => func(...)
 
 #elif ZIN_MODE == ZIN_MODE_LOAD_WRITE
 
