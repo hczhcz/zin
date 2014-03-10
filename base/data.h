@@ -2,10 +2,10 @@
 #define ZIN_DATA_H
 
 // Internal data types
-typedef int zint;
+typedef long zint;
 typedef char zchar;
-typedef unsigned int ztype;
-typedef unsigned int zsize;
+typedef unsigned long ztype;
+typedef unsigned long zsize;
 
 // Head: [type]
 typedef struct {
