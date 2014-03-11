@@ -5,4 +5,10 @@
 #define ZIN_ENABLE_TEST
 #define ZIN_ENABLE_DOC
 
+// TODO: ZIN_EXEC or ZIN_CALL ?
+
+// #define ZIN_DYNAMIC_LEVEL0
+#define ZIN_DYNAMIC_LEVEL1
+#define ZIN_DYNAMIC_LEVEL2
+
 #endif

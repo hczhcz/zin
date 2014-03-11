@@ -25,9 +25,10 @@
 
 // Enum (type id allocator)
 #define ZIN_ID(name) ((ztype) (ze##name))
-#define ZIN_ID_ALLOC(name, id) , za##name = (id)
 #define ZIN_ID_INIT(name) ze##name = za##name
 #define ZIN_ID_DEF(name) , ze##name
+#define ZIN_ID_ALLOC_HEAD() zainit
+#define ZIN_ID_ALLOC(name, id) , za##name = (id)
 
 // Memory management
 #define ZIN_MEM_INIT() GC_INIT()
