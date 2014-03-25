@@ -39,10 +39,10 @@ typedef zhead *pzdata;
 
     typedef zdstr *pzdstr;
 
-    // Code: [head] [ptr] ...
+    // Code: [head] [ptr]
     typedef struct {
         zhead head;
-        pzdata param[];
+        pzdata param;
     } zdcode;
 
     typedef zdcode *pzdcode;
