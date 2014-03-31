@@ -38,4 +38,14 @@
 #define ZIN_RESIZE(obj, size) GC_realloc(obj, size)
 #define ZIN_FREE(obj) GC_free(obj)
 
+// Memory management with type
+#define ZIN_AS(type, data) ((pzd##type) data)
+#define ZIN_CREATE_AS(type, size) ZIN_CREATE(sizeof(zd##type))
+
+// Calling
+#define ZIN_STATIC_READ(name, caller) ((zr##name) (zin, caller))
+#define ZIN_STATIC_WRITE(name, caller, input) ((zw##name) (zin, caller, input))
+#define ZIN_DYNAMIC_READ(name, caller) zrcode(zin, caller)
+#define ZIN_DYNAMIC_WRITE(name, caller, input) zwcode(zin, caller, input)
+
 #endif
