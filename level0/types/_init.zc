@@ -9,7 +9,7 @@
 
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(_ZIN_CURRENT_INIT) {
-        pzd result = 0; // TODO: = zrdict(...)
+        pzd result = 0; // TODO: = dict(...)
 
         #undef ZIN_MODE
 

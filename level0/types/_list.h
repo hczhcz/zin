@@ -1,7 +1,7 @@
-#define zr_ZIN_CURRENT_INIT zrinit_types
-#define zw_ZIN_CURRENT_INIT zwinit_types
-#define za_ZIN_CURRENT_INIT zainit_types
-#define ze_ZIN_CURRENT_INIT zeinit_types
+#define zr_ZIN_CURRENT_INIT zrinit_types // ZIN_FUNC_R
+#define zw_ZIN_CURRENT_INIT zwinit_types // ZIN_FUNC_W
+#define za_ZIN_CURRENT_INIT zainit_types // ZIN_ID_ALLOC
+#define ze_ZIN_CURRENT_INIT zeinit_types // ZIN_ID
 
 #include "_init.zc"
 
