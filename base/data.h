@@ -2,47 +2,48 @@
 #define ZIN_DATA_H
 
 // Internal data types
-typedef long zint;
-typedef char zchar;
-typedef unsigned long ztype;
-typedef unsigned long zsize;
+typedef long ztint;
+typedef char ztchar;
+typedef unsigned long ztid;
+typedef unsigned long ztsize;
 
 // Head: [type]
 typedef struct {
-    ztype type;
-} zhead;
+    ztid layout;
+    ztid type;
+} zd;
 
-typedef zhead *pzdata;
+typedef zd *pzd;
 
     // Atom: [head]
     typedef struct {
-        zhead head;
+        zd head;
     } zdatom;
 
     typedef zdatom *pzdatom;
 
     // Int: [head] [int]
     typedef struct {
-        zhead head;
-        zint value;
+        zd head;
+        ztint value;
     } zdint;
 
     typedef zdint *pzdint;
 
     // Str: [head] [memsize (bit)] [realsize] [char] ...
     typedef struct {
-        zhead head;
-        zsize memsize;
-        zsize realsize;
-        zchar data[];
+        zd head;
+        ztsize memsize;
+        ztsize realsize;
+        ztchar data[];
     } zdstr;
 
     typedef zdstr *pzdstr;
 
     // Code: [head] [ptr]
     typedef struct {
-        zhead head;
-        pzdata param;
+        zd head;
+        pzd param;
     } zdcode;
 
     typedef zdcode *pzdcode;
@@ -50,26 +51,26 @@ typedef zhead *pzdata;
     // Arr: [head] [memsize (bit)] [front] [back] [ptr] ...
     // 0: nil, 1: nil, 2=front: ptr, 3: ptr, 4: ptr, 5=back: nil, ...
     typedef struct {
-        zhead head;
-        zsize memsize;
-        zsize front;
-        zsize back;
-        pzdata buf[];
+        zd head;
+        ztsize memsize;
+        ztsize front;
+        ztsize back;
+        pzd buf[];
     } zdarr;
 
     typedef zdarr *pzdarr;
 
         // Node of dict
         typedef struct {
-            pzdata index;
-            pzdata data;
+            pzd index;
+            pzd data;
         } zddictnode;
 
     // Dict: [head] [memsize (bit)] [realsize] [ptr] ...
     typedef struct {
-        zhead head;
-        zsize memsize;
-        zsize realsize;
+        zd head;
+        ztsize memsize;
+        ztsize realsize;
         zddictnode node[];
     } zddict;
 
@@ -77,7 +78,7 @@ typedef zhead *pzdata;
 
     // Context: [head] [callbuf] [libbuf]
     typedef struct {
-        zhead head;
+        zd head;
         pzdarr callbuf;
         pzdarr libbuf;
     } zdcontext;
@@ -86,7 +87,7 @@ typedef zhead *pzdata;
 
     // Func: [head] [funcr] [funcw]
     typedef struct {
-        zhead head;
+        zd head;
         ZIN_PROTO_PR(funcr);
         ZIN_PROTO_PW(funcw);
     } zdfunc;

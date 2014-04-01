@@ -14,17 +14,17 @@
 #define ZIN_MODE_DOC 10
 
 // Functions' prototypes
-#define ZIN_PROTO_PR(name) pzdata (* (name)) (pzdcontext zin, pzdata caller)
-#define ZIN_PROTO_PW(name) void (* (name)) (pzdcontext zin, pzdata caller, pzdata input)
-#define ZIN_PROTO_R(name) pzdata (zr##name) (pzdcontext zin, pzdata caller)
-#define ZIN_PROTO_W(name) void (zw##name) (pzdcontext zin, pzdata caller, pzdata input)
+#define ZIN_PROTO_PR(name) pzd (* (name)) (pzdcontext zin, pzd caller)
+#define ZIN_PROTO_PW(name) void (* (name)) (pzdcontext zin, pzd caller, pzd input)
+#define ZIN_PROTO_R(name) pzd (zr##name) (pzdcontext zin, pzd caller)
+#define ZIN_PROTO_W(name) void (zw##name) (pzdcontext zin, pzd caller, pzd input)
 
 // Functions' usage
 #define ZIN_FUNC_R(name) (zr##name)
 #define ZIN_FUNC_W(name) (zw##name)
 
 // Enum (type id allocator)
-#define ZIN_ID(name) ((ztype) (ze##name))
+#define ZIN_ID(name) ((ztid) (ze##name))
 #define ZIN_ID_INIT(name) ze##name = za##name
 #define ZIN_ID_DEF(name) , ze##name
 #define ZIN_ID_ALLOC_HEAD() zainit

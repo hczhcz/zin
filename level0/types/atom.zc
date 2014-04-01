@@ -11,7 +11,7 @@
 
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(false) {
-        pzdata result = ZIN_CREATE(sizeof(zdatom));
+        pzd result = ZIN_CREATE(sizeof(zdatom));
 
         result->type = ZIN_ID(false);
 
@@ -19,7 +19,7 @@
     }
 
     ZIN_PROTO_R(true) {
-        pzdata result = ZIN_CREATE(sizeof(zdatom));
+        pzd result = ZIN_CREATE(sizeof(zdatom));
 
         result->type = ZIN_ID(true);
 
