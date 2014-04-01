@@ -11,18 +11,14 @@
 
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(false) {
-        pzd result = ZIN_CREATE(sizeof(zdatom));
-
-        result->type = ZIN_ID(false);
-
+        pzd result;
+        ZIN_NEW_ATOM(result, false)
         return result;
     }
 
     ZIN_PROTO_R(true) {
-        pzd result = ZIN_CREATE(sizeof(zdatom));
-
-        result->type = ZIN_ID(true);
-
+        pzd result;
+        ZIN_NEW_ATOM(result, true)
         return result;
     }
 
