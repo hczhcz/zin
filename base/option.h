@@ -5,6 +5,8 @@
 #define ZIN_ENABLE_TEST
 #define ZIN_ENABLE_DOC
 
+#define ZIN_FORCE_COPY // Always copy on read
+
 #define ZIN_CORE_READ ZIN_STATIC_READ
 #define ZIN_LIB_READ ZIN_DYNAMIC_READ
 #define ZIN_CORE_WRITE ZIN_STATIC_WRITE

@@ -13,15 +13,27 @@
 
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(atom) {
+        #ifdef ZIN_FORCE_COPY
         return ZIN_NEW_ATOM(atom);
+        #else
+        return caller;
+        #endif
     }
 
     ZIN_PROTO_R(false) {
+        #ifdef ZIN_FORCE_COPY
         return ZIN_NEW_ATOM(false);
+        #else
+        return caller;
+        #endif
     }
 
     ZIN_PROTO_R(true) {
+        #ifdef ZIN_FORCE_COPY
         return ZIN_NEW_ATOM(true);
+        #else
+        return caller;
+        #endif
     }
 
 #elif ZIN_MODE == ZIN_MODE_WRITE
