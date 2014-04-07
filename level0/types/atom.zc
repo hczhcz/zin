@@ -11,15 +11,11 @@
 
 #elif ZIN_MODE == ZIN_MODE_READ
     ZIN_PROTO_R(false) {
-        pzd result;
-        ZIN_NEW_ATOM(result, false)
-        return result;
+        return ZIN_NEW_ATOM(false);
     }
 
     ZIN_PROTO_R(true) {
-        pzd result;
-        ZIN_NEW_ATOM(result, true)
-        return result;
+        return ZIN_NEW_ATOM(true);
     }
 
 #elif ZIN_MODE == ZIN_MODE_WRITE
