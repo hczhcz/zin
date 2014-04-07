@@ -1,15 +1,21 @@
 #if   ZIN_MODE == ZIN_MODE_ID
-    ZIN_ID_DEF(false) ZIN_ID_DEF(true)
+    ZIN_ID_DEF(atom) ZIN_ID_DEF(false) ZIN_ID_DEF(true)
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_READ
+    ZIN_PROTO_R(atom);
     ZIN_PROTO_R(false);
     ZIN_PROTO_R(true);
 
 #elif ZIN_MODE == ZIN_MODE_HEADER_WRITE
+    ZIN_PROTO_W(atom);
     ZIN_PROTO_W(false);
     ZIN_PROTO_W(true);
 
 #elif ZIN_MODE == ZIN_MODE_READ
+    ZIN_PROTO_R(atom) {
+        return ZIN_NEW_ATOM(atom);
+    }
+
     ZIN_PROTO_R(false) {
         return ZIN_NEW_ATOM(false);
     }
@@ -19,6 +25,10 @@
     }
 
 #elif ZIN_MODE == ZIN_MODE_WRITE
+    ZIN_PROTO_W(atom) {
+        // Error
+    }
+
     ZIN_PROTO_W(false) {
         // Error
     }
