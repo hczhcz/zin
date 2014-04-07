@@ -50,10 +50,22 @@
 // Casting
 #define ZIN_AS(type, data) ((pzd##type) data)
 
+// Context
+#define ZIN_EXEC_THEN(data) // TODO: push_front(zin->callbuf, data)
+#define ZIN_EXEC_LATER(data) // TODO: push_back(zin->callbuf, data)
+#define ZIN_LIB_PUSH(data) // TODO: push_back(zin->libbuf, data)
+#define ZIN_LIB_POP() // TODO: pop_back(zin->libbuf)
+#define ZIN_LIB_GET(id) // (zin, )???
+#define ZIN_LIB_SET(id, value) // ()???
+
 // Calling
-#define ZIN_STATIC_READ(name, caller) ((zr##name) (zin, caller))
-#define ZIN_STATIC_WRITE(name, caller, input) ((zw##name) (zin, caller, input))
-#define ZIN_DYNAMIC_READ(name, caller) zrcode(zin, caller)
-#define ZIN_DYNAMIC_WRITE(name, caller, input) zwcode(zin, caller, input)
+#define ZIN_READ(name, caller) ((zr##name) (zin, caller))
+#define ZIN_WRITE(name, caller, input) ((zw##name) (zin, caller, input))
+#define ZIN_GET_READ(caller) ((ZIN_LIB_GET((caller)->type)->funcr) (zin, caller))
+#define ZIN_GET_WRITE(caller, input) ((ZIN_LIB_GET((caller)->type)->funcw) (zin, caller, input))
+#define ZIN_STATIC_READ(name, param) ZIN_READ(name, ZIN_NEW_CODE(ze##name, param))
+#define ZIN_STATIC_WRITE(name, param, input) ZIN_WRITE(name, ZIN_NEW_CODE(ze##name, param), input)
+#define ZIN_DYNAMIC_READ(name, param) ZIN_GET_READ(ZIN_NEW_CODE(ze##name, param))
+#define ZIN_DYNAMIC_WRITE(name, param, input) ZIN_GET_WRITE(ZIN_NEW_CODE(ze##name, param), input)
 
 #endif
