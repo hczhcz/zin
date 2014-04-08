@@ -27,12 +27,7 @@ typedef zd *pzd;
 
     typedef zdatom *pzdatom;
 
-    static inline pzd zin_gen_atom(ztid tolayout, ztid totype) {
-        pzdatom result = ZIN_ALLOCATE_NO_OUT(sizeof(zdatom));
-        result->head.layout = tolayout;
-        result->head.type = totype;
-        return (pzd)result;
-    }
+    pzd zin_gen_atom(ztid tolayout, ztid totype);
     #define ZIN_NEW_ATOM(totype) zin_gen_atom(ZIN_ID(atom), ZIN_ID(totype))
 
     ////////////////////////////////////////////////////////////////
@@ -44,14 +39,8 @@ typedef zd *pzd;
     } zdint;
 
     typedef zdint *pzdint;
-
-    static inline pzd zin_gen_int(ztid tolayout, ztid totype) {
-        pzdint result = ZIN_ALLOCATE_NO_OUT(sizeof(zdint));
-        result->head.layout = tolayout;
-        result->head.type = totype;
-        return (pzd)result;
-    }
-    #define ZIN_NEW_INT(totype) zin_gen_int(ZIN_ID(int), ZIN_ID(totype))
+    pzd zin_gen_int(ztid tolayout, ztid totype, ztint tovalue);
+    #define ZIN_NEW_INT(totype, tovalue) zin_gen_int(ZIN_ID(int), ZIN_ID(totype), tovalue)
 
     ////////////////////////////////////////////////////////////////
     // Str: [head] [memsize (bit)] [realsize] [char] ...
@@ -64,14 +53,8 @@ typedef zd *pzd;
     } zdstr;
 
     typedef zdstr *pzdstr;
-
-    static inline pzd zin_gen_str(ztid tolayout, ztid totype) {
-        pzdstr result = ZIN_ALLOCATE_NO_OUT(sizeof(zdstr));
-        result->head.layout = tolayout;
-        result->head.type = totype;
-        return (pzd)result;
-    }
-    #define ZIN_NEW_STR(totype) zin_gen_str(ZIN_ID(str), ZIN_ID(totype))
+    pzd zin_gen_str(ztid tolayout, ztid totype, ztsize tomemsize);
+    #define ZIN_NEW_STR(totype, tomemsize) zin_gen_str(ZIN_ID(str), ZIN_ID(totype), tomemsize)
 
     ////////////////////////////////////////////////////////////////
     // Code: [head] [ptr]
@@ -82,14 +65,8 @@ typedef zd *pzd;
     } zdcode;
 
     typedef zdcode *pzdcode;
-
-    static inline pzd zin_gen_code(ztid tolayout, ztid totype) {
-        pzdcode result = ZIN_ALLOCATE(sizeof(zdcode));
-        result->head.layout = tolayout;
-        result->head.type = totype;
-        return (pzd)result;
-    }
-    #define ZIN_NEW_CODE(totype) zin_gen_code(ZIN_ID(code), ZIN_ID(totype))
+    pzd zin_gen_code(ztid tolayout, ztid totype, pzd toparam);
+    #define ZIN_NEW_CODE(totype, toparam) zin_gen_code(ZIN_ID(code), ZIN_ID(totype), toparam)
 
     ////////////////////////////////////////////////////////////////
     // Arr: [head] [memsize (bit)] [front] [back] [ptr] ...
@@ -104,14 +81,8 @@ typedef zd *pzd;
     } zdarr;
 
     typedef zdarr *pzdarr;
-
-    static inline pzd zin_gen_arr(ztid tolayout, ztid totype) {
-        pzdarr result = ZIN_ALLOCATE(sizeof(zdarr));
-        result->head.layout = tolayout;
-        result->head.type = totype;
-        return (pzd)result;
-    }
-    #define ZIN_NEW_ARR(totype) zin_gen_arr(ZIN_ID(arr), ZIN_ID(totype))
+    pzd zin_gen_arr(ztid tolayout, ztid totype, ztsize tomemsize);
+    #define ZIN_NEW_ARR(totype, tomemsize) zin_gen_arr(ZIN_ID(arr), ZIN_ID(totype), memsize)
 
     ////////////////////////////////////////////////////////////////
     // Dict: [head] [memsize (bit)] [realsize] [ptr] ...
@@ -130,14 +101,8 @@ typedef zd *pzd;
     } zddict;
 
     typedef zddict *pzddict;
-
-    static inline pzd zin_gen_dict(ztid tolayout, ztid totype) {
-        pzddict result = ZIN_ALLOCATE(sizeof(zddict));
-        result->head.layout = tolayout;
-        result->head.type = totype;
-        return (pzd)result;
-    }
-    #define ZIN_NEW_DICT(totype) zin_gen_dict(ZIN_ID(dict), ZIN_ID(totype))
+    pzd zin_gen_dict(ztid tolayout, ztid totype, ztsize tomemsize);
+    #define ZIN_NEW_DICT(totype, tomemsize) zin_gen_dict(ZIN_ID(dict), ZIN_ID(totype), memsize)
 
     ////////////////////////////////////////////////////////////////
     // Context: [head] [callbuf] [libbuf]
@@ -149,14 +114,8 @@ typedef zd *pzd;
     } zdcontext;
 
     typedef zdcontext *pzdcontext;
-
-    static inline pzd zin_gen_context(ztid tolayout, ztid totype) {
-        pzdcontext result = ZIN_ALLOCATE(sizeof(zdcontext));
-        result->head.layout = tolayout;
-        result->head.type = totype;
-        return (pzd)result;
-    }
-    #define ZIN_NEW_CONTEXT(totype) zin_gen_context(ZIN_ID(context), ZIN_ID(totype))
+    pzd zin_gen_context(ztid tolayout, ztid totype, pzdarr tocallbuf, pzdarr tolibbuf);
+    #define ZIN_NEW_CONTEXT(totype, tocallbuf, tolibbuf) zin_gen_context(ZIN_ID(context), ZIN_ID(totype), tocallbuf, tolibbuf)
 
     ////////////////////////////////////////////////////////////////
     // Func: [head] [funcr] [funcw]
@@ -168,14 +127,8 @@ typedef zd *pzd;
     } zdfunc;
 
     typedef zdfunc *pzdfunc;
-
-    static inline pzd zin_gen_func(ztid tolayout, ztid totype) {
-        pzdfunc result = ZIN_ALLOCATE(sizeof(zdfunc));
-        result->head.layout = tolayout;
-        result->head.type = totype;
-        return (pzd)result;
-    }
-    #define ZIN_NEW_FUNC(totype) zin_gen_func(ZIN_ID(func), ZIN_ID(totype))
+    pzd zin_gen_func(ztid tolayout, ztid totype, ZIN_PROTO_PR(tofuncr), ZIN_PROTO_PW(tofuncw));
+    #define ZIN_NEW_FUNC(totype, tofuncr, tofuncw) zin_gen_func(ZIN_ID(func), ZIN_ID(totype), tofuncr, tofuncw)
 
     ////////////////////////////////////////////////////////////////
 
