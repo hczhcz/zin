@@ -4,8 +4,8 @@
 // Internal data types
 typedef long ztint;
 typedef char ztchar;
-typedef unsigned long ztid;
-typedef unsigned long ztsize;
+typedef unsigned int ztid;
+typedef unsigned int ztsize;
 
 ////////////////////////////////////////////////////////////////
 // Head: [type]
