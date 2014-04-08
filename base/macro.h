@@ -50,6 +50,9 @@
 // Casting
 #define ZIN_AS(type, data) ((pzd##type) data)
 
+// Not finished: begin
+#if 0
+
 // Context
 #define ZIN_EXEC_THEN(data) // TODO: push_front(zin->callbuf, data)
 #define ZIN_EXEC_LATER(data) // TODO: push_back(zin->callbuf, data)
@@ -67,5 +70,8 @@
 #define ZIN_STATIC_WRITE(name, param, input) ZIN_WRITE(name, ZIN_NEW_CODE(ze##name, param), input)
 #define ZIN_DYNAMIC_READ(name, param) ZIN_GET_READ(ZIN_NEW_CODE(ze##name, param))
 #define ZIN_DYNAMIC_WRITE(name, param, input) ZIN_GET_WRITE(ZIN_NEW_CODE(ze##name, param), input)
+
+// Not finished: end
+#endif
 
 #endif
