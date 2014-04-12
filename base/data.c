@@ -20,7 +20,8 @@ pzd zin_gen_str(ztid tolayout, ztid totype, ztsize tomemsize) {
     result->head.layout = tolayout;
     result->head.type = totype;
     result->memsize = tomemsize;
-    result->realsize = 0;
+    result->front = 0;
+    result->back = 0;
     return (pzd)result;
 }
 

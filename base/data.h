@@ -43,12 +43,13 @@ typedef zd *pzd;
     #define ZIN_NEW_INT(totype, tovalue) zin_gen_int(ZIN_ID(int), ZIN_ID(totype), tovalue)
 
     ////////////////////////////////////////////////////////////////
-    // Str: [head] [memsize (bit)] [realsize] [char] ...
+    // Str: [head] [memsize (bit)] [front] [back] [char] ...
 
     typedef struct {
         zd head;
         ztsize memsize;
-        ztsize realsize;
+        ztsize front;
+        ztsize back;
         ztchar data[];
     } zdstr;
 
