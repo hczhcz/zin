@@ -3,7 +3,9 @@
 
 enum {
     ZIN_ID_ALLOC_HEAD()
-    ZIN_ID_ALLOC(init_type, 10)
+    #include "../level0/_alloc.h"
+    #include "../level1/_alloc.h"
+    #include "../level2/_alloc.h"
 };
 
 #endif
