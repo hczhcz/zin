@@ -1,0 +1,37 @@
+#if   ZIN_MODE == ZIN_MODE_ID
+    ZIN_ID_DEF(context)
+
+#elif ZIN_MODE == ZIN_MODE_HEADER_READ
+    ZIN_PROTO_R(context);
+
+#elif ZIN_MODE == ZIN_MODE_HEADER_WRITE
+    ZIN_PROTO_W(context);
+
+#elif ZIN_MODE == ZIN_MODE_READ
+    ZIN_PROTO_R(context) {
+        // TODO
+        // Use as query, or error
+        return 0;
+    }
+
+#elif ZIN_MODE == ZIN_MODE_WRITE
+    ZIN_PROTO_W(context) {
+        // TODO
+    }
+
+#elif ZIN_MODE == ZIN_MODE_LOAD_READ
+
+
+#elif ZIN_MODE == ZIN_MODE_LOAD_WRITE
+
+
+#elif ZIN_MODE == ZIN_MODE_TEST_READ
+    // ZIN_EXEC(...)
+
+#elif ZIN_MODE == ZIN_MODE_TEST_WRITE
+
+
+#elif ZIN_MODE == ZIN_MODE_DOC
+    // ZIN_DOC(...)
+
+#endif

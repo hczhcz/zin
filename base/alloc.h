@@ -3,7 +3,7 @@
 
 enum {
     ZIN_ID_ALLOC_HEAD()
-    ZIN_ID_ALLOC(init_types, 10)
+    ZIN_ID_ALLOC(init_type, 10)
 };
 
 #endif

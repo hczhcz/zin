@@ -1,0 +1,36 @@
+#if   ZIN_MODE == ZIN_MODE_ID
+    ZIN_ID_DEF(func)
+
+#elif ZIN_MODE == ZIN_MODE_HEADER_READ
+    ZIN_PROTO_R(func);
+
+#elif ZIN_MODE == ZIN_MODE_HEADER_WRITE
+    ZIN_PROTO_W(func);
+
+#elif ZIN_MODE == ZIN_MODE_READ
+    ZIN_PROTO_R(func) {
+        // Error, cannot directly access func pointer
+        return 0;
+    }
+
+#elif ZIN_MODE == ZIN_MODE_WRITE
+    ZIN_PROTO_W(func) {
+        // Error
+    }
+
+#elif ZIN_MODE == ZIN_MODE_LOAD_READ
+
+
+#elif ZIN_MODE == ZIN_MODE_LOAD_WRITE
+
+
+#elif ZIN_MODE == ZIN_MODE_TEST_READ
+    // ZIN_EXEC(...)
+
+#elif ZIN_MODE == ZIN_MODE_TEST_WRITE
+
+
+#elif ZIN_MODE == ZIN_MODE_DOC
+    // ZIN_DOC(...)
+
+#endif
