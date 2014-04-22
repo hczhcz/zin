@@ -4,8 +4,6 @@
 #undef ZIN_LEVEL_MODE
 #include "../../base/_lib.h"
 
-#include "_all.h"
-
 #define ZIN_LIB_MODE ZIN_LIB_MODE_INC
     #define ZIN_MODE ZIN_MODE_READ
         #include "_list.h"

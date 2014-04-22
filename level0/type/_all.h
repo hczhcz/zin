@@ -3,6 +3,7 @@
 #undef ZIN_LIB_MODE
 
 #ifdef ZIN_SKIP_FILE
+    #error "bad inc lib"
     #undef ZIN_SKIP_FILE
 #else
     #define ZIN_LIB_MODE ZIN_LIB_MODE_INC

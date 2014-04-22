@@ -25,4 +25,6 @@
     #include "func.zc"
     #include "int.zc"
     #include "str.zc"
+#else
+    #error "bad mode"
 #endif

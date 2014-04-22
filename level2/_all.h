@@ -6,4 +6,6 @@
 #elif ZIN_LEVEL_MODE == ZIN_LEVEL_MODE_INC
     #include "../level1/_all.h"
     // #include ".../_all.h"
+#else
+    #error "bad mode"
 #endif

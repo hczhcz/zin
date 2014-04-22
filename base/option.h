@@ -12,4 +12,6 @@
 #define ZIN_CORE_WRITE ZIN_STATIC_WRITE
 #define ZIN_LIB_WRITE ZIN_DYNAMIC_WRITE
 
+#else
+    #error "bad inc"
 #endif

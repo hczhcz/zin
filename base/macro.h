@@ -81,4 +81,6 @@
 // Not finished: end
 #endif
 
+#else
+    #error "bad inc"
 #endif

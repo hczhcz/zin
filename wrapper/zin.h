@@ -1,3 +1,6 @@
+#ifndef ZIN_H
+#define ZIN_H
+
 #include "../base/_all.h"
 // Set level to 2, to include all libraries
 #define ZIN_LEVEL_CURRENT 2
@@ -6,3 +9,7 @@
 void zin_init(void);
 
 pzdcontext zin_new(void);
+
+#else
+    #error "bad inc"
+#endif
