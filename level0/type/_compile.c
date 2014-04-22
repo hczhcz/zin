@@ -1,12 +1,12 @@
 #include "../../base/_all.h"
-#define ZIN_LEVELMODE ZIN_LEVELMODE_LIB
+#define ZIN_LEVEL_MODE ZIN_LEVEL_MODE_LIB
     #include "../_all.h"
-#undef ZIN_LEVELMODE
+#undef ZIN_LEVEL_MODE
 #include "../../base/_lib.h"
 
 #include "_all.h"
 
-#define ZIN_LIBMODE ZIN_LIBMODE_INC
+#define ZIN_LIB_MODE ZIN_LIB_MODE_INC
     #define ZIN_MODE ZIN_MODE_READ
         #include "_list.h"
     #undef ZIN_MODE
@@ -16,4 +16,4 @@
             #include "_list.h"
         #undef ZIN_MODE
     #endif
-#undef ZIN_LIBMODE
+#undef ZIN_LIB_MODE

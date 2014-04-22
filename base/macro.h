@@ -22,12 +22,12 @@
 #define ZIN_MODE_TEST_WRITE 9
 #define ZIN_MODE_DOC 10
 
-#define ZIN_LIBMODE_SKIP 257
-#define ZIN_LIBMODE_INC 258
+#define ZIN_LIB_MODE_SKIP 257
+#define ZIN_LIB_MODE_INC 258
 
-#define ZIN_LEVELMODE_ALLOC 513
-#define ZIN_LEVELMODE_LIB 514
-#define ZIN_LEVELMODE_INC 515
+#define ZIN_LEVEL_MODE_ALLOC 513
+#define ZIN_LEVEL_MODE_LIB 514
+#define ZIN_LEVEL_MODE_INC 515
 
 // Functions' prototypes
 #define ZIN_PROTO_PR(name) pzd (* (name)) (pzdcontext zin, pzd caller)

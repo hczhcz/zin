@@ -1,11 +1,11 @@
-#define ZIN_LIBMODE ZIN_LIBMODE_SKIP
+#define ZIN_LIB_MODE ZIN_LIB_MODE_SKIP
     #include "_list.h"
-#undef ZIN_LIBMODE
+#undef ZIN_LIB_MODE
 
 #ifdef ZIN_SKIP_FILE
     #undef ZIN_SKIP_FILE
 #else
-    #define ZIN_LIBMODE ZIN_LIBMODE_INC
+    #define ZIN_LIB_MODE ZIN_LIB_MODE_INC
 
         enum {
             #define ZIN_MODE ZIN_MODE_ID
@@ -23,5 +23,5 @@
             #undef ZIN_MODE
         #endif
 
-    #undef ZIN_LIBMODE
+    #undef ZIN_LIB_MODE
 #endif

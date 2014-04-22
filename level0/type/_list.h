@@ -1,10 +1,10 @@
-#if   ZIN_LIBMODE == ZIN_LIBMODE_SKIP
+#if   ZIN_LIB_MODE == ZIN_LIB_MODE_SKIP
     #ifdef ZIN_TYPE_ALL_H
         #define ZIN_SKIP_FILE
     #else
         #define ZIN_TYPE_ALL_H
     #endif
-#elif ZIN_LIBMODE == ZIN_LIBMODE_INC
+#elif ZIN_LIB_MODE == ZIN_LIB_MODE_INC
     #define zr_ZIN_CURRENT_INIT zrinit_type // ZIN_FUNC_R
     #define zw_ZIN_CURRENT_INIT zwinit_type // ZIN_FUNC_W
     #define za_ZIN_CURRENT_INIT zainit_type // ZIN_ID_ALLOC
