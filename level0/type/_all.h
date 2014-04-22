@@ -5,7 +5,7 @@
 #ifdef ZIN_SKIP_FILE
     #undef ZIN_SKIP_FILE
 #else
-    #include "../../base/_all.h"
+    #define ZIN_LIBMODE ZIN_LIBMODE_INC
 
         enum {
             #define ZIN_MODE ZIN_MODE_ID
