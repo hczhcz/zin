@@ -26,7 +26,8 @@
 #define ZIN_LIBMODE_INC 258
 
 #define ZIN_LEVELMODE_ALLOC 513
-#define ZIN_LEVELMODE_INC 514
+#define ZIN_LEVELMODE_LIB 514
+#define ZIN_LEVELMODE_INC 515
 
 // Functions' prototypes
 #define ZIN_PROTO_PR(name) pzd (* (name)) (pzdcontext zin, pzd caller)

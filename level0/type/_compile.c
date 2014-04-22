@@ -1,5 +1,9 @@
 #include "../../base/_all.h"
+#define ZIN_LEVELMODE ZIN_LEVELMODE_LIB
+    #include "../_all.h"
+#undef ZIN_LEVELMODE
 #include "../../base/_lib.h"
+
 #include "_all.h"
 
 #define ZIN_LIBMODE ZIN_LIBMODE_INC
