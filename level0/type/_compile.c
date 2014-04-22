@@ -1,3 +1,5 @@
+#include "../../base/_all.h"
+#include "../../base/_lib.h"
 #include "_all.h"
 
 #define ZIN_LIBMODE ZIN_LIBMODE_INC
