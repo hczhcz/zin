@@ -22,6 +22,9 @@
 #define ZIN_MODE_TEST_WRITE 9
 #define ZIN_MODE_DOC 10
 
+#define ZIN_LIBMODE_SKIP 257
+#define ZIN_LIBMODE_INC 258
+
 // Functions' prototypes
 #define ZIN_PROTO_PR(name) pzd (* (name)) (pzdcontext zin, pzd caller)
 #define ZIN_PROTO_PW(name) void (* (name)) (pzdcontext zin, pzd caller, pzd input)
