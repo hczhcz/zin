@@ -58,16 +58,30 @@ typedef zd *pzd;
     #define ZIN_NEW_STR(totype, tomemsize) zin_gen_str(ZIN_ID(str), ZIN_ID(totype), tomemsize)
 
     ////////////////////////////////////////////////////////////////
-    // Code: [head] [ptr]
+    // Ptr: [head] [ptr]
 
     typedef struct {
         zd head;
-        pzd param;
-    } zdcode;
+        pzd data;
+    } zdptr;
 
-    typedef zdcode *pzdcode;
-    pzd zin_gen_code(ztid tolayout, ztid totype, pzd toparam);
-    #define ZIN_NEW_CODE(totype, toparam) zin_gen_code(ZIN_ID(code), ZIN_ID(totype), toparam)
+    typedef zdptr *pzdptr;
+    pzd zin_gen_ptr(ztid tolayout, ztid totype, pzd todata);
+    #define ZIN_NEW_PTR(totype, todata) zin_gen_ptr(ZIN_ID(ptr), ZIN_ID(totype), todata)
+
+
+    ////////////////////////////////////////////////////////////////
+    // Pair: [head] [ptr] [ptr]
+
+    typedef struct {
+        zd head;
+        pzd left;
+        pzd right;
+    } zdpair;
+
+    typedef zdpair *pzdpair;
+    pzd zin_gen_pair(ztid tolayout, ztid totype, pzd toleft, pzd toright);
+    #define ZIN_NEW_PAIR(totype, toleft, toright) zin_gen_pair(ZIN_ID(pair), ZIN_ID(totype), toleft, toright)
 
     ////////////////////////////////////////////////////////////////
     // Arr: [head] [memsize (bit)] [front] [back] [ptr] ...

@@ -73,10 +73,10 @@
 #define ZIN_WRITE(name, caller, input) ((zw##name) (zin, caller, input))
 #define ZIN_GET_READ(caller) ((ZIN_LIB_GET((caller)->type)->funcr) (zin, caller))
 #define ZIN_GET_WRITE(caller, input) ((ZIN_LIB_GET((caller)->type)->funcw) (zin, caller, input))
-#define ZIN_STATIC_READ(name, param) ZIN_READ(name, ZIN_NEW_CODE(ze##name, param))
-#define ZIN_STATIC_WRITE(name, param, input) ZIN_WRITE(name, ZIN_NEW_CODE(ze##name, param), input)
-#define ZIN_DYNAMIC_READ(name, param) ZIN_GET_READ(ZIN_NEW_CODE(ze##name, param))
-#define ZIN_DYNAMIC_WRITE(name, param, input) ZIN_GET_WRITE(ZIN_NEW_CODE(ze##name, param), input)
+#define ZIN_STATIC_READ(name, param) ZIN_READ(name, ZIN_NEW_?(ze##name, param))
+#define ZIN_STATIC_WRITE(name, param, input) ZIN_WRITE(name, ZIN_NEW_?(ze##name, param), input)
+#define ZIN_DYNAMIC_READ(name, param) ZIN_GET_READ(ZIN_NEW_?(ze##name, param))
+#define ZIN_DYNAMIC_WRITE(name, param, input) ZIN_GET_WRITE(ZIN_NEW_?(ze##name, param), input)
 
 // Not finished: end
 #endif

@@ -25,11 +25,20 @@ pzd zin_gen_str(ztid tolayout, ztid totype, ztsize tomemsize) {
     return (pzd)result;
 }
 
-pzd zin_gen_code(ztid tolayout, ztid totype, pzd toparam) {
-    pzdcode result = ZIN_ALLOCATE(sizeof(zdcode));
+pzd zin_gen_ptr(ztid tolayout, ztid totype, pzd todata) {
+    pzdptr result = ZIN_ALLOCATE(sizeof(zdptr));
     result->head.layout = tolayout;
     result->head.type = totype;
-    result->param = toparam;
+    result->data = todata;
+    return (pzd)result;
+}
+
+pzd zin_gen_pair(ztid tolayout, ztid totype, pzd toleft, pzd toright) {
+    pzdpair result = ZIN_ALLOCATE(sizeof(zdpair));
+    result->head.layout = tolayout;
+    result->head.type = totype;
+    result->left = toleft;
+    result->right = toright;
     return (pzd)result;
 }
 
