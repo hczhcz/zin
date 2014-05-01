@@ -19,6 +19,7 @@
 
     #include "arr.zc"
     #include "atom.zc"
+    #include "bind.zc"
     #include "context.zc"
     #include "dict.zc"
     #include "func.zc"

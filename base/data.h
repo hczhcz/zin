@@ -50,7 +50,7 @@ typedef zd *pzd;
         ztsize memsize;
         ztsize front;
         ztsize back;
-        ztchar data[];
+        ztchar strdata[];
     } zdstr;
 
     typedef zdstr *pzdstr;
@@ -100,11 +100,11 @@ typedef zd *pzd;
     #define ZIN_NEW_ARR(totype, tomemsize) zin_gen_arr(ZIN_ID(arr), ZIN_ID(totype), memsize)
 
     ////////////////////////////////////////////////////////////////
-    // Dict: [head] [memsize (bit)] [realsize] [ptr] ...
+    // Dict: [head] [memsize (bit)] [realsize] [[index] [ptr]] ...
 
         // Node of dict
         typedef struct {
-            pzd index;
+            ztint index;
             pzd data;
         } zddictnode;
 
@@ -144,6 +144,20 @@ typedef zd *pzd;
     typedef zdfunc *pzdfunc;
     pzd zin_gen_func(ztid tolayout, ztid totype, ZIN_PROTO_PR(tofuncr), ZIN_PROTO_PW(tofuncw));
     #define ZIN_NEW_FUNC(totype, tofuncr, tofuncw) zin_gen_func(ZIN_ID(func), ZIN_ID(totype), tofuncr, tofuncw)
+
+    ////////////////////////////////////////////////////////////////
+    // Bind: [head] [funcr] [funcw] [caller]
+
+    typedef struct {
+        zd head;
+        ZIN_PROTO_PR(funcr);
+        ZIN_PROTO_PW(funcw);
+        pzd caller;
+    } zdbind;
+
+    typedef zdbind *pzdbind;
+    pzd zin_gen_bind(ztid tolayout, ztid totype, ZIN_PROTO_PR(tofuncr), ZIN_PROTO_PW(tofuncw), pzd tocaller);
+    #define ZIN_NEW_BIND(totype, tofuncr, tofuncw, tocaller) zin_gen_bind(ZIN_ID(bind), ZIN_ID(totype), tofuncr, tofuncw, tocaller)
 
     ////////////////////////////////////////////////////////////////
 
