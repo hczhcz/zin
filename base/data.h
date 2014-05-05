@@ -146,20 +146,6 @@ typedef zd *pzd;
     #define ZIN_NEW_FUNC(totype, tofuncr, tofuncw) zin_gen_func(ZIN_ID(func), ZIN_ID(totype), tofuncr, tofuncw)
 
     ////////////////////////////////////////////////////////////////
-    // Bind: [head] [funcr] [funcw] [caller]
-
-    typedef struct {
-        zd head;
-        ZIN_PROTO_PR(funcr);
-        ZIN_PROTO_PW(funcw);
-        pzd caller;
-    } zdbind;
-
-    typedef zdbind *pzdbind;
-    pzd zin_gen_bind(ztid tolayout, ztid totype, ZIN_PROTO_PR(tofuncr), ZIN_PROTO_PW(tofuncw), pzd tocaller);
-    #define ZIN_NEW_BIND(totype, tofuncr, tofuncw, tocaller) zin_gen_bind(ZIN_ID(bind), ZIN_ID(totype), tofuncr, tofuncw, tocaller)
-
-    ////////////////////////////////////////////////////////////////
 
 #else
     #error "bad inc"

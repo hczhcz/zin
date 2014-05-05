@@ -82,13 +82,3 @@ pzd zin_gen_func(ztid tolayout, ztid totype, ZIN_PROTO_PR(tofuncr), ZIN_PROTO_PW
     result->funcw = tofuncw;
     return (pzd)result;
 }
-
-pzd zin_gen_bind(ztid tolayout, ztid totype, ZIN_PROTO_PR(tofuncr), ZIN_PROTO_PW(tofuncw), pzd tocaller) {
-    pzdbind result = ZIN_ALLOCATE(sizeof(zdbind));
-    result->head.layout = tolayout;
-    result->head.type = totype;
-    result->funcr = tofuncr;
-    result->funcw = tofuncw;
-    result->caller = tocaller;
-    return (pzd)result;
-}
