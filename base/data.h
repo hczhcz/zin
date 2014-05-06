@@ -50,6 +50,7 @@ typedef ztfunc *pztfunc;
 
 ////////////////////////////////////////////////////////////////
 // Head: [layout] [type]
+
 struct zd {
     ztid layout;
     ztid type;

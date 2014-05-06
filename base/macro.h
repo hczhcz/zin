@@ -55,7 +55,9 @@
 #define ZIN_FREE(obj) GC_free(obj)
 
 // Casting
-#define ZIN_AS(type, data) ((pzd##type) data)
+#define ZIN_IS(type, data) ((data)->head.type = (ztid) (ze##type))
+#define ZIN_IS_LAYOUT(type, data) ((data)->head.layout = (ztid) (ze##type))
+#define ZIN_AS(type, data) ((pzd##type) (data))
 
 // Not finished: begin
 #if 0
