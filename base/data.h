@@ -67,8 +67,6 @@ struct zd {
     };
 
     pzd zin_gen_atom(ztid tolayout, ztid totype, pztfunc tofunc);
-    #define ZIN_NEW_ATOM(totype) zin_gen_atom(ZIN_ID(atom), ZIN_ID(totype), zin->head.func)
-    #define ZIN_NEW_ATOM_BIND(totype, tofunc) zin_gen_atom(ZIN_ID(atom), ZIN_ID(totype), tofunc)
 
     ////////////////////////////////////////////////////////////////
     // Int: [head] [int]
@@ -79,8 +77,6 @@ struct zd {
     } zdint;
 
     pzd zin_gen_int(ztid tolayout, ztid totype, pztfunc tofunc, ztint tovalue);
-    #define ZIN_NEW_INT(totype, tovalue) zin_gen_int(ZIN_ID(int), ZIN_ID(totype), zin->head.func, tovalue)
-    #define ZIN_NEW_INT_BIND(totype, tofunc, tovalue) zin_gen_int(ZIN_ID(int), ZIN_ID(totype), tofunc, tovalue)
 
     ////////////////////////////////////////////////////////////////
     // Str: [head] [memsize (bit)] [front] [back] [char] ...
@@ -94,8 +90,6 @@ struct zd {
     };
 
     pzd zin_gen_str(ztid tolayout, ztid totype, pztfunc tofunc, ztsize tomemsize);
-    #define ZIN_NEW_STR(totype, tomemsize) zin_gen_str(ZIN_ID(str), ZIN_ID(totype), zin->head.func, tomemsize)
-    #define ZIN_NEW_STR_BIND(totype, tofunc, tomemsize) zin_gen_str(ZIN_ID(str), ZIN_ID(totype), tofunc, tomemsize)
 
     ////////////////////////////////////////////////////////////////
     // Ptr: [head] [ptr]
@@ -106,8 +100,6 @@ struct zd {
     };
 
     pzd zin_gen_ptr(ztid tolayout, ztid totype, pztfunc tofunc, pzd todata);
-    #define ZIN_NEW_PTR(totype, todata) zin_gen_ptr(ZIN_ID(ptr), ZIN_ID(totype), zin->head.func, todata)
-    #define ZIN_NEW_PTR_BIND(totype, tofunc, todata) zin_gen_ptr(ZIN_ID(ptr), ZIN_ID(totype), tofunc, todata)
 
     ////////////////////////////////////////////////////////////////
     // Pair: [head] [ptr] [ptr]
@@ -119,8 +111,6 @@ struct zd {
     };
 
     pzd zin_gen_pair(ztid tolayout, ztid totype, pztfunc tofunc, pzd toleft, pzd toright);
-    #define ZIN_NEW_PAIR(totype, toleft, toright) zin_gen_pair(ZIN_ID(pair), ZIN_ID(totype), zin->head.func, toleft, toright)
-    #define ZIN_NEW_PAIR_BIND(totype, tofunc, toleft, toright) zin_gen_pair(ZIN_ID(pair), ZIN_ID(totype), tofunc, toleft, toright)
 
     ////////////////////////////////////////////////////////////////
     // Arr: [head] [memsize (bit)] [front] [back] [ptr] ...
@@ -135,8 +125,6 @@ struct zd {
     };
 
     pzd zin_gen_arr(ztid tolayout, ztid totype, pztfunc tofunc, ztsize tomemsize);
-    #define ZIN_NEW_ARR(totype, tomemsize) zin_gen_arr(ZIN_ID(arr), ZIN_ID(totype), zin->head.func, memsize)
-    #define ZIN_NEW_ARR_BIND(totype, tofunc, tomemsize) zin_gen_arr(ZIN_ID(arr), ZIN_ID(totype), tofunc, memsize)
 
     ////////////////////////////////////////////////////////////////
     // Dict: [head] [memsize (bit)] [realsize] [[index] [ptr]] ...
@@ -149,8 +137,6 @@ struct zd {
     };
 
     pzd zin_gen_dict(ztid tolayout, ztid totype, pztfunc tofunc, ztsize tomemsize);
-    #define ZIN_NEW_DICT(totype, tomemsize) zin_gen_dict(ZIN_ID(dict), ZIN_ID(totype), zin->head.func, memsize)
-    #define ZIN_NEW_DICT_BIND(totype, tofunc, tomemsize) zin_gen_dict(ZIN_ID(dict), ZIN_ID(totype), tofunc, memsize)
 
     ////////////////////////////////////////////////////////////////
     // Context: [head] [callbuf] [libbuf]
@@ -162,8 +148,6 @@ struct zd {
     };
 
     pzd zin_gen_context(ztid tolayout, ztid totype, pztfunc tofunc, pzd tocallbuf, pzd tolibbuf);
-    #define ZIN_NEW_CONTEXT(totype, tocallbuf, tolibbuf) zin_gen_context(ZIN_ID(context), ZIN_ID(totype), zin->head.func, tocallbuf, tolibbuf)
-    #define ZIN_NEW_CONTEXT_BIND(totype, tofunc, tocallbuf, tolibbuf) zin_gen_context(ZIN_ID(context), ZIN_ID(totype), tofunc, tocallbuf, tolibbuf)
 
     ////////////////////////////////////////////////////////////////
     // Func: [head] [funcr] [funcw]
@@ -174,8 +158,6 @@ struct zd {
     };
 
     pzd zin_gen_func(ztid tolayout, ztid totype, pztfunc tofunc, ZIN_PROTO_PR(tofuncr), ZIN_PROTO_PW(tofuncw));
-    #define ZIN_NEW_FUNC(totype, tofuncr, tofuncw) zin_gen_func(ZIN_ID(func), ZIN_ID(totype), zin->head.func, tofuncr, tofuncw)
-    #define ZIN_NEW_FUNC_BIND(totype, tofunc, tofuncr, tofuncw) zin_gen_func(ZIN_ID(func), ZIN_ID(totype), tofunc, tofuncr, tofuncw)
 
     ////////////////////////////////////////////////////////////////
 

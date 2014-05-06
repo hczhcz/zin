@@ -29,19 +29,19 @@
 #define ZIN_LEVEL_MODE_LIB 514
 #define ZIN_LEVEL_MODE_INC 515
 
-// Functions' prototypes
-#define ZIN_PROTO_PR(name) pzd (* (name)) (pzdcontext zin, pzd caller)
-#define ZIN_PROTO_PW(name) void (* (name)) (pzdcontext zin, pzd caller, pzd input)
-#define ZIN_PROTO_R(name) pzd (zr##name) (pzdcontext zin, pzd caller)
-#define ZIN_PROTO_W(name) void (zw##name) (pzdcontext zin, pzd caller, pzd input)
-
 // Functions' usage
 #define ZIN_FUNC_R(name) (zr##name)
 #define ZIN_FUNC_W(name) (zw##name)
 
+// Functions' prototypes
+#define ZIN_PROTO_PR(name) pzd (* (name)) (pzdcontext zin, pzd caller)
+#define ZIN_PROTO_PW(name) void (* (name)) (pzdcontext zin, pzd caller, pzd input)
+#define ZIN_PROTO_R(name) pzd ZIN_FUNC_R(name) (pzdcontext zin, pzd caller)
+#define ZIN_PROTO_W(name) void ZIN_FUNC_W(name) (pzdcontext zin, pzd caller, pzd input)
+
 // Enum (type id allocator)
 #define ZIN_ID(name) ((ztid) (ze##name))
-#define ZIN_ID_INIT(name) ze##name = za##name
+#define ZIN_ID_INIT(name) ze##name = (za##name)
 #define ZIN_ID_DEF(name) , ze##name
 #define ZIN_ID_ALLOC_HEAD() zainit
 #define ZIN_ID_ALLOC(name, id) , za##name = (id)
@@ -54,10 +54,17 @@
 #define ZIN_RESIZE(obj, size) GC_realloc(obj, size)
 #define ZIN_FREE(obj) GC_free(obj)
 
-// Casting
-#define ZIN_IS(type, data) ((data)->head.type = (ztid) (ze##type))
-#define ZIN_IS_LAYOUT(type, data) ((data)->head.layout = (ztid) (ze##type))
+// Data allocating and casting
+#define ZIN_NEW(tolayout, totype, ...) (zin_gen_##tolayout)(ZIN_ID(tolayout), ZIN_ID(totype), zin->head.func, __VA_ARGS__)
+#define ZIN_NEW_ATOM(totype) zin_gen_atom(ZIN_ID(atom), ZIN_ID(totype), zin->head.func)
+#define ZIN_NEW_BIND(tolayout, totype, tofunc, ...) (zin_gen_##tolayout)(ZIN_ID(tolayout), ZIN_ID(totype), tofunc, __VA_ARGS__)
+#define ZIN_IS(totype, data) ((data)->type = ZIN_ID(totype))
+#define ZIN_IS_LAYOUT(tolayout, data) ((data)->layout = ZIN_ID(tolayout))
 #define ZIN_AS(type, data) ((pzd##type) (data))
+
+// Calling
+#define ZIN_READ(data) ((data)->func.funcr(zin, data))
+#define ZIN_WRITE(data, input) ((data)->func.funcw(zin, data, input))
 
 // Not finished: begin
 #if 0
