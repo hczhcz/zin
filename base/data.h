@@ -157,11 +157,11 @@ struct zd {
 
     struct zdcontext {
         struct zd head;
-        pzdarr callbuf;
-        pzdarr libbuf;
+        pzd callbuf;
+        pzd libbuf;
     };
 
-    pzd zin_gen_context(ztid tolayout, ztid totype, pztfunc tofunc, pzdarr tocallbuf, pzdarr tolibbuf);
+    pzd zin_gen_context(ztid tolayout, ztid totype, pztfunc tofunc, pzd tocallbuf, pzd tolibbuf);
     #define ZIN_NEW_CONTEXT(totype, tocallbuf, tolibbuf) zin_gen_context(ZIN_ID(context), ZIN_ID(totype), zin->head.func, tocallbuf, tolibbuf)
     #define ZIN_NEW_CONTEXT_BIND(totype, tofunc, tocallbuf, tolibbuf) zin_gen_context(ZIN_ID(context), ZIN_ID(totype), tofunc, tocallbuf, tolibbuf)
 

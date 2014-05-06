@@ -72,7 +72,7 @@ pzd zin_gen_dict(ztid tolayout, ztid totype, pztfunc tofunc, ztsize tomemsize) {
     return (pzd)result;
 }
 
-pzd zin_gen_context(ztid tolayout, ztid totype, pztfunc tofunc, pzdarr tocallbuf, pzdarr tolibbuf) {
+pzd zin_gen_context(ztid tolayout, ztid totype, pztfunc tofunc, pzd tocallbuf, pzd tolibbuf) {
     pzdcontext result = ZIN_ALLOCATE(sizeof(struct zdcontext));
     result->head.layout = tolayout;
     result->head.type = totype;
